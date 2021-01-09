@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "module": "commonjs",
+    "outDir": "./dist",
+    "target": "es5",
+
+    "noImplicitAny": true,
+    "strict": true,
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types", "src/types"],
+
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules/**"],
+  "compileOnSave": false
+}
