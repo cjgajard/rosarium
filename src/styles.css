@@ -1,0 +1,35 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  color: black;
+  background-color: white;
+  line-height: 1.428581;
+  font-size: 1.6rem;
+  font-family: 'Carrois Gothic SC', sans-serif;
+}
+h1, h2, p {
+  margin: 1em 0;
+}
+main {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+}
+[hidden] {
+  display: none;
+}
+.justify {
+  text-align: justify;
+  text-justify: auto;
+}
+.verse:nth-child(odd) {
+  color: #444;
+}
