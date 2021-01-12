@@ -9,6 +9,7 @@ Prayers
 Sign of the Cross
 
 In the name of the Father, and of the Son, and of the Holy Spirit.
+
 Amen.
 
 ## credo
@@ -25,6 +26,7 @@ from there he will come to judge the living and the dead.
 I believe in the Holy Spirit, the holy catholic Church,
 the communion of saints, the forgiveness of sins,
 the resurrection of the body, and life everlasting.
+
 Amen.
 
 ## lordsPrayer
@@ -41,6 +43,7 @@ and forgive us our trespasses,
 as we forgive those who trespass against us;
 and lead us not into temptation,
 but deliver us from evil.
+
 Amen.
 
 ## finalDoxology
@@ -63,6 +66,7 @@ and blessed is the fruit of thy womb, Jesus.
 Holy Mary, Mother of God,
 pray for us sinners,
 now and at the hour of our death.
+
 Amen.
 
 ## gloryBe
@@ -76,6 +80,7 @@ and to the Holy Spirit,
 As it was in the beginning,
 and now, and ever shall be,
 world without end.
+
 Amen.
 
 ## fatimasPrayer
@@ -87,7 +92,6 @@ save us from the fire of hell.
 
 Lead all souls to Heaven,
 especially those who are most in need.
-Amen.
 
 ## oSacramentMostHoly
 
@@ -117,7 +121,6 @@ O clement, O loving, O sweet Virgin Mary.
 Pray for us, O holy Mother of God.
 
 That we may be made worthy of the promises of Christ.
-Amen.
 
 ## oremus
 
@@ -130,21 +133,30 @@ that while meditating on these mysteries
 of the most holy Rosary of the Blessed Virgin Mary,
 we may imitate what they contain and obtain what they promise,
 through the same Christ our Lord.
+
 Amen.
 
 ## saintMichæl
 
-Sancte Michæl
+Prayer to St. Michael
 
-Per tuum præsidium,
-Sancte Michæl Archángele, defende nos in proélio,
-contra nequítiam et insídias diáboli esto præsídium
-Imperet illi Deus, súpplices deprecamur:
-tuque, Prínceps milítiæ cælestis,
-Sátanam aliosque spíritus malignos,
-qui ad perditionem animarum pervangantur in mundo,
-divina virtute,in infernum detrude.
+St. Michael the Archangel, defend us in battle;
+be our defense against the wickedness and snares of the devil.
+May God rebuke him, we humbly pray.  And do thou,
+O prince of the heavenly host, by the power of God
+thrust into hell Satan and all the evil spirits
+who prowl about the world for the ruin of souls.
+
 Amen.
+
+## subTuum
+
+Sub tuum præsidium
+
+We fly to your patronage, O holy Mother of God;
+despise not our petitions in our necessities,
+but deliver us always from all dangers,
+O glorious and blessed Virgin.
 
 # mysteries
 

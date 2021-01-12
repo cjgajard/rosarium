@@ -9,6 +9,7 @@ Orationes
 Signum Crucis
 
 In nómine Patris, et Filii, et Spíritus Sancti.
+
 Amen.
 
 ## credo
@@ -25,6 +26,7 @@ inde venturus est iudicare vivos et mórtuos.
 Credo in Spíritum Sanctum, sanctam Ecclesiam Cathólicam,
 Sanctorum Communionem, remissionem peccatorum,
 carnis resurrectionem, vitam æternam.
+
 Amen.
 
 ## lordsPrayer
@@ -41,6 +43,7 @@ et dimitte nobis débita nostra,
 sicut et nos dimíttimus debitóribus nostris.
 Et ne nos inducas in tentationem:
 sed líbera nos a malo.
+
 Amen.
 
 ## finalDoxology
@@ -63,6 +66,7 @@ et benedictus fructus ventris tui, Iesus.
 Sancta Maria, Mater Dei,
 ora pro nobis peccatóribus,
 nunc, et in hora mortis nostræ.
+
 Amen.
 
 ## gloryBe
@@ -75,19 +79,19 @@ et Spíritui Sancto.
 Sicut erat in principio,
 et nunc, et semper,
 et in sǽcula sæculorum.
+
 Amen.
 
 ## fatimasPrayer
 
 Oratio Fatimæ
 
-O Bone Iesu,
-líbera nos a peccatis nostris,
-líbera nos ab ígnibus gehennæ;
+Domine Iesu,
+dimitte nobis debita nostra,
+salva nos ab igne inferiori,
 
-perdúc in paradisum omnes animas
-præsertim eas quæ plus misericórdia tua indigent.
-Amen.
+perdúc in cælum omnes animas,
+præsertim eas quæ misericordiæ tuæ maxime indigent.
 
 ## oSacramentMostHoly
 
@@ -116,7 +120,6 @@ O clemens, O pia, O dulcis Virgo Maria!
 Ora pro nobis, Sancta Dei Génetrix.
 
 Ut digni efficiamur promissionibus Christi.
-Amen.
 
 ## oremus
 
@@ -126,23 +129,33 @@ Oremus:
 Deus, cuius Unigénitus, per vitam, mortem et resurrectionem suam
 nobis salutis æternæ præmia comparavit: concede, quæsumus:
 ut hæc mysteria sacratíssimo Beatæ Mariæ Vírginis Rosario recolentes,
-et imitémurquod cóntinent, et quod promittunt assequamur.
+et imitémur quod cóntinent, et quod promittunt assequamur.
 Per eundem Christum Dóminum nostrum.
+
 Amen.
 
 ## saintMichæl
 
 Sancte Michæl
 
-Per tuum præsidium,
 Sancte Michæl Archángele, defende nos in proélio,
 contra nequítiam et insídias diáboli esto præsídium
-Imperet illi Deus, súpplices deprecamur:
-tuque, Prínceps milítiæ cælestis,
+Imperet illi Deus, súpplices deprecamur: tuque,
+Prínceps milítiæ cælestis,
 Sátanam aliosque spíritus malignos,
 qui ad perditionem animarum pervangantur in mundo,
-divina virtute,in infernum detrude.
+divina virtute, in infernum detrude.
+
 Amen.
+
+## subTuum
+
+Sub tuum præsidium
+
+Sub tuum præaesidium confugimus, sancta Dei Genetrix;
+nostras deprecationes ne despicias in necessitatibus,
+sed a periculis cunctis libera nos semper,
+Virgo gloriosa et benedicta.
 
 # mysteries
 

@@ -4,7 +4,8 @@ import path from 'path';
 
 export const LANGUAGES: LanguageMap = {
   en: 'English',
-  la: 'Latin',
+  es: 'Español',
+  la: 'Latina',
 };
 
 export const isLang = (code: string): code is Lang => (

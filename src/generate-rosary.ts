@@ -1,4 +1,5 @@
 import contentEn from '../text/en.json';
+import contentEs from '../text/es.json';
 import contentLa from '../text/la.json';
 
 const NORMAL_CHAIN = 10;
@@ -17,6 +18,7 @@ enum NameOfDay {
 
 const CONTENTS: LangContentMap = {
   en: contentEn,
+  es: contentEs,
   la: contentLa,
 };
 
@@ -68,7 +70,8 @@ export default (config: RosaryConfig): Rosary => {
   };
 
   const iterator = (function *() {
-    for (let it = 0; it < MYSTERIES_NUM; it++) {
+    // for (let it = 0; it < MYSTERIES_NUM; it++) {
+    for (let it = 0; it < 1; it++) {
       for (const value of chain())
         yield value;
     }

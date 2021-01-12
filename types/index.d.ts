@@ -40,7 +40,7 @@ interface DynElem<T> {
   update(result: T);
 }
 
-type Lang = 'en' | 'la';
+type Lang = 'en' | 'es' | 'la';
 
 type LanguageMap = {
   [K in Lang]: string;

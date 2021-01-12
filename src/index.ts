@@ -19,8 +19,6 @@ declare interface Configuration {
   submit: HTMLButtonElement;
 }
 
-console.log(LANGUAGES); // eslint-disable-line no-console
-
 const hydrateContent = (): DynElem<IPrayer> | null => {
   const $content = document.getElementById('content');
   if (!$content)
