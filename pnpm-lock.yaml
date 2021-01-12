@@ -1,5 +1,3 @@
-dependencies:
-  marked: 1.2.7
 devDependencies:
   '@types/marked': 1.2.1
   '@types/node': 14.14.20
@@ -8,7 +6,9 @@ devDependencies:
   cssnano: 4.1.10
   eslint: 7.17.0
   eslint-plugin-import: 2.22.1_eslint@7.17.0
+  marked: 1.2.7
   parcel-bundler: 1.12.4
+  parcel-plugin-inliner: 1.0.14_parcel-bundler@1.12.4
   source-map-support: 0.5.19
   ts-node: 9.1.1_typescript@4.1.3
   typescript: 4.1.3
@@ -1071,6 +1071,15 @@ packages:
       node: '>= 6.0.0'
     resolution:
       integrity: sha512-USSjRAAQYsZFlv43FUPdD+jEGML5/8oLF0rUzPQTtK4q9kvaXr49F5ZplyLz5lox78cLZ0TxN2bIDQ1xhOkulQ==
+  /@shferreira/posthtml-inline-assets/3.0.2:
+    dependencies:
+      file-type: 10.11.0
+      fse: 4.0.1
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-Flj6L54Tc17M8p/wbb9YaL01MlX+WQe8gzPTxRb0yF/DYHqgizWEx0XKVeUEHbCGeB14zJ9pVCmCDFBxhc2y3Q==
   /@types/json-schema/7.0.6:
     dev: true
     resolution:
@@ -1976,7 +1985,7 @@ packages:
     resolution:
       integrity: sha512-LO8uL9lOIyRRrQmZxHZFl1RV+ZbcsAkFWTktn5SmH40WgLtSNYN4m4W2v9ONT147PxBY/XrRhrWq8TlvObyUjQ==
   /core-js/2.6.12:
-    deprecated: 'core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.'
+    deprecated: core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.
     dev: true
     requiresBuild: true
     resolution:
@@ -2924,6 +2933,12 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-fqoO76jZ3ZnYrXLDRxBR1YvOvc0k844kcOg40bgsPrE25LAb/PDqTY+ho64Xh2c8ZXgIKldchCFHczG2UVRcWA==
+  /file-type/10.11.0:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-uzk64HRpUZyTGZtVuvrjP0FYxzQrBf4rojot6J65YMEbwBLB0CWm0CLojVpwpmFmxcE/lkvYICgfcGozbBq6rw==
   /file-uri-to-path/1.0.0:
     dev: true
     resolution:
@@ -3016,6 +3031,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+  /fse/4.0.1:
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-5XLUrweQvJxSJKhBe3XjimHSJ2EUhYOG+K2tLQy8I9kp78Fa3CgUXqxAZWxE9+fsvnI5GVkHl4NDqbf1tSb93Q==
   /fsevents/1.2.13:
     dependencies:
       bindings: 1.5.0
@@ -3940,7 +3961,7 @@ packages:
     resolution:
       integrity: sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   /marked/1.2.7:
-    dev: false
+    dev: true
     engines:
       node: '>= 8.16.2'
     hasBin: true
@@ -4447,6 +4468,15 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-G+iZGGiPEXcRzw0fiRxWYCKxdt/F7l9a0xkiU4XbcVRJCSlBnioWEwJMutOCCpoQmaQtjB4RBHDGIHN85AIhLQ==
+  /parcel-plugin-inliner/1.0.14_parcel-bundler@1.12.4:
+    dependencies:
+      '@shferreira/posthtml-inline-assets': 3.0.2
+      parcel-bundler: 1.12.4
+    dev: true
+    peerDependencies:
+      parcel-bundler: ^1.9.4
+    resolution:
+      integrity: sha512-i3U6m/MHOFPuQEx1GqHLburj6PO3MUVVYe3f2bgS9vSGFC7Dy694Mna1UkQ57h146r/DoweXMabNEOvk5kkyhA==
   /parent-module/1.0.1:
     dependencies:
       callsites: 3.1.0
@@ -5279,7 +5309,7 @@ packages:
       request-promise-core: 1.1.4_request@2.88.2
       stealthy-require: 1.1.1
       tough-cookie: 2.5.0
-    deprecated: 'request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142'
+    deprecated: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
     dev: true
     engines:
       node: '>=0.12.0'
@@ -5309,7 +5339,7 @@ packages:
       tough-cookie: 2.5.0
       tunnel-agent: 0.6.0
       uuid: 3.4.0
-    deprecated: 'request has been deprecated, see https://github.com/request/request/issues/3142'
+    deprecated: request has been deprecated, see https://github.com/request/request/issues/3142
     dev: true
     engines:
       node: '>= 6'
@@ -5334,7 +5364,7 @@ packages:
     resolution:
       integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==
   /resolve-url/0.2.1:
-    deprecated: 'https://github.com/lydell/resolve-url#deprecated'
+    deprecated: https://github.com/lydell/resolve-url#deprecated
     dev: true
     resolution:
       integrity: sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
@@ -6229,7 +6259,7 @@ packages:
     resolution:
       integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   /urix/0.1.0:
-    deprecated: 'Please see https://github.com/lydell/urix#deprecated'
+    deprecated: Please see https://github.com/lydell/urix#deprecated
     dev: true
     resolution:
       integrity: sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
@@ -6423,6 +6453,7 @@ specifiers:
   eslint-plugin-import: ^2.22.1
   marked: ^1.2.7
   parcel-bundler: ^1.12.4
+  parcel-plugin-inliner: ^1.0.14
   source-map-support: ^0.5.19
   ts-node: ^9.1.1
   typescript: ^4.1.3

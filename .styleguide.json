@@ -67,7 +67,7 @@
       "after": true,
       "before": true
     }],
-    "line-comment-position": ["error", "above"],
+    "line-comment-position": ["off", "above"],
     "linebreak-style": ["error", "unix"],
     "lines-around-comment": "warn",
     "lines-between-class-members": ["error", "always", {
@@ -141,7 +141,7 @@
     "no-implicit-globals": "warn",
     "no-implied-eval": "warn",
     "no-import-assign": "warn",
-    "no-inline-comments": "error",
+    "no-inline-comments": "off",
     "no-inner-declarations": "warn",
     "no-invalid-regexp": "warn",
     "no-invalid-this": "off",
@@ -270,7 +270,7 @@
       }
     }, {
       "enforceForRenamedProperties": false
-    }]'
+    }],
     "prefer-exponentiation-operator": "warn",
     "prefer-named-capture-group": "warn",
     "prefer-numeric-literals": "warn",

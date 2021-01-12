@@ -50,7 +50,6 @@ Lord's Prayer doxology
 For the kingdom,
 the power and the glory are yours
 now and for ever.
-Amen.
 
 ## hailMary
 

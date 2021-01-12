@@ -50,7 +50,6 @@ Doxologia finalis
 Quia tuum est regnum,
 et potestas, et Gloria,
 in sæcula.
-Amen.
 
 ## hailMary
 

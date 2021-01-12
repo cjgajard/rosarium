@@ -15,18 +15,17 @@ enum NameOfDay {
   SAT,
 }
 
-// eslint-disable-next-line max-len
-const generate = (config: RosaryConfig): IterableIterator<IPrayer | INodeKey> => {
-  let content: IContent;
-  switch (config.language) {
-  case Language.en:
-    content = contentEn;
-  case Language.la:
-  default:
-    content = contentLa;
-  }
+const CONTENTS: LangContentMap = {
+  en: contentEn,
+  la: contentLa,
+};
 
-  let mysteryName: MysteryKey;
+export type Rosary = IterableIterator<IPrayer | INodeKey>;
+
+export default (config: RosaryConfig): Rosary => {
+  const content: IContent = CONTENTS[config.lang];
+
+  let mysteryName: MysteryKey; // eslint-disable-line init-declarations
   switch (new Date().getDay()) {
   case NameOfDay.MON:
   case NameOfDay.THU:
@@ -78,32 +77,3 @@ const generate = (config: RosaryConfig): IterableIterator<IPrayer | INodeKey> =>
   }());
   return iterator;
 };
-
-enum Language {
-  en = 'en',
-  la = 'la'
-}
-
-export const LANGUAGES = [
-  Language.en,
-  Language.la,
-];
-
-interface IContent {
-  prayers: IPrayerMap;
-  mysteries: IMysteryMap;
-}
-
-export const toLanguage = (key: string): Language | void => {
-  switch (key) {
-  case 'en':
-    return Language.en;
-  case 'la':
-    return Language.la;
-  default:
-    return void 0;
-  }
-}
-
-export type Rosary = ReturnType<typeof generate>;
-export default generate;

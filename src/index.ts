@@ -1,4 +1,15 @@
-import generateRosary, { LANGUAGES, Rosary, toLanguage } from '../lib/generate-rosary';
+import { LANGUAGES, isLang } from '../lib/gen-lang';
+import generateRosary, { Rosary } from './generate-rosary';
+
+// HACK: allows iterating through keys without losing type information.
+/* eslint-disable */
+declare global { // HACK
+  interface ObjectConstructor {
+    typedKeys<T>(obj: T): Array<keyof T>
+  }
+}
+Object.typedKeys = Object.keys as any;
+/* eslint-enable */
 
 declare interface Configuration {
   wrapper: Element;
@@ -8,42 +19,26 @@ declare interface Configuration {
   submit: HTMLButtonElement;
 }
 
-declare interface IState {
-  current?: IteratorResult<IPrayer | void>;
-  running: boolean;
-}
-
-const LANGNAME = {
-  en: 'English',
-  la: 'Latin',
-};
-
-const state: IState = {
-  running: false,
-};
+console.log(LANGUAGES); // eslint-disable-line no-console
 
 const hydrateContent = (): DynElem<IPrayer> | null => {
   const $content = document.getElementById('content');
   if (!$content)
     return null;
-  const $title = $content.querySelector('.content_title');
-  if (!$title)
-    return null;
-  const $text = $content.querySelector('.content_text');
-  if (!$text)
-    return null;
   return {
     clear() {
-      $title.innerHTML = '';
-      $text.innerHTML = '';
+      $content.innerHTML = '';
     },
-    update(result: IPrayer) {
-      $title.innerHTML = result.title + (
-        result.repetition ? ` #${result.repetition}` : ''
+    update(resp: IPrayer) {
+      const verses = resp.verses.map((ve: string) => (
+        `<p class="verse">${ve}</p>`
+      ));
+      $content.innerHTML = (
+        `<h2 class="content_title">
+          ${(resp.title + (resp.repetition ? ` #${resp.repetition}` : ''))}
+        </h2>
+        <div class="content_text">${verses.join('')}</div>`
       );
-      $text.innerHTML = result.verses.map((ve: string, idx: number) => {
-        return `<p class="verse">${ve.replace(/\n/g, '<br/>')}</p>`;
-      }).join('');
     },
   };
 };
@@ -52,35 +47,33 @@ const createSelect = (wrapper: Element): HTMLSelectElement | null => {
   const $select = wrapper.querySelector('[name="lang"]');
   if (!$select)
     return null;
-  LANGUAGES.forEach((lang) => {
-    $select.innerHTML += `
-        <option value="${lang}">${LANGNAME[lang]}</option>
-      `;
+  Object.typedKeys(LANGUAGES).forEach((lang) => {
+    $select.innerHTML += `<option value="${lang}">${LANGUAGES[lang]}</option>`;
   });
   return $select as HTMLSelectElement;
 };
 
-const createConfiguration = (): Configuration | void => {
+const createConfiguration = (): Configuration | null => {
   const wrapper = document.getElementById('config');
   if (!wrapper)
-    return;
+    return null;
   const language = createSelect(wrapper);
   if (!language)
-    return;
+    return null;
   const submit = document.getElementById('start');
   if (!submit)
-    return;
+    return null;
   const fatimasPrayer = wrapper.querySelector('[name="fatimasPrayer"]');
   if (!fatimasPrayer)
-    return;
+    return null;
   const finalDoxology = wrapper.querySelector('[name="finalDoxology"]');
   if (!finalDoxology)
-    return;
+    return null;
   return {
-    language,
-    submit: submit as HTMLButtonElement,
     fatimasPrayer: fatimasPrayer as HTMLInputElement,
     finalDoxology: finalDoxology as HTMLInputElement,
+    language,
+    submit: submit as HTMLButtonElement,
     wrapper,
   };
 };
@@ -102,14 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (start) {
       configuration.wrapper.setAttribute('hidden', 'hidden');
       nextButton.removeAttribute('hidden');
-      state.running = true;
     }
     else {
       content.clear();
       nextButton.setAttribute('hidden', 'hidden');
       configuration.wrapper.removeAttribute('hidden');
       configuration.language.focus();
-      state.running = false;
     }
   };
 
@@ -117,24 +108,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!iterator)
       return;
     const { value, done } = iterator.next();
-    if (done)
-      return toggleRunning(false);
+    if (done) {
+      toggleRunning(false);
+      return;
+    }
     content.update(value);
-    nextButton.focus();
   };
 
   nextButton.addEventListener('click', onNext);
   configuration.submit.addEventListener('click', () => {
-    if (state.running)
+    const lang = configuration.language.value;
+    if (!isLang(lang))
       return;
-    const config: RosaryConfig = {
+    const rosary = generateRosary({
       fatimasPrayer: configuration.fatimasPrayer.checked,
       finalDoxology: configuration.finalDoxology.checked,
-      language: toLanguage(configuration.language.value),
-    };
-    const rosary = generateRosary(config);
+      lang,
+    });
     iterator = rosary;
     toggleRunning(true);
     onNext();
+    nextButton.focus();
   });
 });

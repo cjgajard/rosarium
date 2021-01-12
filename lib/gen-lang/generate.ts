@@ -1,11 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import mdjsonTree from './mdjson-tree';
+import generator, { isLang } from './index';
 
-// Below is 草
-// eslint-disable-next-line max-len
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
-export const toJSON = (key: string, val: any): any => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const toJSON = (key: string, val: any): any => {
   switch (key) {
   case 'parent':
   case 'level':
@@ -34,9 +30,12 @@ export const toJSON = (key: string, val: any): any => {
   });
 };
 
-export default (lang: string): INodeExt => {
-  const filepath = path.join(__dirname, '..', '..', 'text', `${lang}.md`);
-  const prayersText = fs.readFileSync(filepath).toString('utf8');
-  const tree = mdjsonTree(prayersText);
-  return tree;
-};
+const code = process.argv[2];
+if (isLang(code)) {
+  const content = JSON.stringify(generator(code), toJSON, 2);
+  process.stdout.write(`${content}\n`);
+}
+else {
+  process.stderr.write(`Unexpected code '${code}'.\n`);
+  process.exit(1);
+}

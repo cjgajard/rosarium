@@ -10,7 +10,8 @@ interface INode {
   title: string;
   verses?: string[];
 }
-type INodeKey = INode | string | string[];
+
+type INodeKey = typeof INode.key;
 
 interface IPrayer {
   title: string;
@@ -29,8 +30,9 @@ type IMysteryMap = {
   readonly [K in MysteryKey]: INode;
 }
 
-type LangMap = {
-  [key: string]: INode;
+interface IContent {
+  prayers: IPrayerMap;
+  mysteries: IMysteryMap;
 }
 
 interface DynElem<T> {
@@ -38,8 +40,18 @@ interface DynElem<T> {
   update(result: T);
 }
 
+type Lang = 'en' | 'la';
+
+type LanguageMap = {
+  [K in Lang]: string;
+}
+
+type LangContentMap = {
+  [K in Lang]: IContent;
+}
+
 interface RosaryConfig {
   finalDoxology: boolean;
   fatimasPrayer: boolean;
-  language: Language;
+  lang: Lang;
 }

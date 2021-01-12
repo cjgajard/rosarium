@@ -26,10 +26,15 @@ main {
 [hidden] {
   display: none;
 }
-.justify {
-  text-align: justify;
-  text-justify: auto;
+.verse {
+  position: relative;
 }
 .verse:nth-child(odd) {
   color: #444;
+}
+.karaoke {
+  position: absolute;
+  color: red;
+  top: 0;
+  left: 0;
 }
