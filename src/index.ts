@@ -56,10 +56,13 @@ const createConfiguration = (): IView | null => {
     return null;
   const checkbox = (name: string) => {
     const obj = wrapper.querySelector<HTMLInputElement>(`[name="${name}"]`);
-    return () => obj ? obj.checked : false;
+    return () => (obj ? obj.checked : false);
   };
   const language = createSelect(wrapper);
   if (!language)
+    return null;
+  const mystery = wrapper.querySelector<HTMLSelectElement>('[name="mystery"]');
+  if (!mystery)
     return null;
   const submit = document.getElementById('start');
   if (!submit)
@@ -74,6 +77,8 @@ const createConfiguration = (): IView | null => {
       fatimasPrayer: fatimasPrayer(),
       finalDoxology: finalDoxology(),
       letUsPray: letUsPray(),
+      luminous: true,
+      mystery: mystery.value,
       saintMichael: saintMichael(),
       subTuum: subTuum(),
     }),

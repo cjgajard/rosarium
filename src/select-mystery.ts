@@ -72,7 +72,7 @@ const getLiturgicalTime = (now: Date): Times => {
   return 'ordinary';
 };
 
-export default (): MysteryKey => {
+export const dailyMystery = (config: RosaryConfig): MysteryKey => {
   const now = new Date();
   switch (now.getDay()) {
   case NameOfDay.MON:
@@ -82,11 +82,15 @@ export default (): MysteryKey => {
   case NameOfDay.WED:
     return 'glorious';
   case NameOfDay.THU:
-    return 'luminous';
+    if (config.luminous)
+      return 'luminous';
+    return 'joyful';
   case NameOfDay.FRI:
     return 'sorrowful';
   case NameOfDay.SAT:
-    return 'joyful';
+    if (config.luminous)
+      return 'joyful';
+    return 'glorious';
   default:
     break;
   }
@@ -114,5 +118,17 @@ export default (): MysteryKey => {
   default:
     // unreachable
     return 'glorious';
+  }
+};
+
+export default (config: RosaryConfig): MysteryKey => {
+  switch (config.mystery) {
+  case 'joyful':
+  case 'glorious':
+  case 'sorrowful':
+  case 'luminous':
+    return config.mystery;
+  default:
+    return dailyMystery(config);
   }
 };
