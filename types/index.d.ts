@@ -56,6 +56,7 @@ interface RosaryConfig {
   fatimasPrayer: boolean;
   finalDoxology: boolean;
   letUsPray: boolean;
+  luminous: boolean;
   saintMichael: boolean;
   subTuum: boolean;
 }
