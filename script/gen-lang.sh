@@ -2,7 +2,7 @@
 
 gen_lang() {
   for arg in $*; do
-    if node dist/lib/gen-lang/generate.js $arg >text/$arg.json; then
+    if node dist/lib/gen-lang/ $arg >text/$arg.json; then
       echo text/$arg.json written
     fi
   done

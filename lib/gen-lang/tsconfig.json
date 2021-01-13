@@ -13,5 +13,5 @@
     "target": "es5",
     "types": ["node", "../../types"]
   },
-  "files": ["generate.ts"]
+  "files": ["index.ts"]
 }

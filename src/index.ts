@@ -1,4 +1,4 @@
-import { LANGUAGES, isLang } from '../lib/gen-lang';
+import { LANGUAGES, isLang } from '../lib/lang';
 import generateRosary, { Rosary } from './generate-rosary';
 
 // HACK: allows iterating through keys without losing type information.
