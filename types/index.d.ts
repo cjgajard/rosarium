@@ -19,8 +19,10 @@ interface IPrayer {
   repetition?: number;
 }
 
-type PrayerKey = 'signOfTheCross' | 'credo' | 'lordsPrayer' | 'finalDoxology' |
-  'hailMary' | 'gloryBe' | 'fatimasPrayer' | 'hailHolyQueen' | 'oremus';
+type PrayerKey = 'credo' | 'fatimasPrayer' | 'finalDoxology' | 'gloryBe' |
+  'hailHolyQueen' | 'hailMary' | 'lordsPrayer' | 'letUsPray' | 'saintMichael' |
+  'signOfTheCross' | 'subTuum';
+
 type IPrayerMap = {
   readonly [K in PrayerKey]: IPrayer;
 }
@@ -51,7 +53,9 @@ type LangContentMap = {
 }
 
 interface RosaryConfig {
-  finalDoxology: boolean;
   fatimasPrayer: boolean;
-  lang: Lang;
+  finalDoxology: boolean;
+  letUsPray: boolean;
+  saintMichael: boolean;
+  subTuum: boolean;
 }

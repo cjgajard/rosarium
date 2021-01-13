@@ -26,6 +26,9 @@ main {
 [hidden] {
   display: none;
 }
+.config-box > div{
+  margin-bottom: 8px;
+}
 .verse {
   position: relative;
 }

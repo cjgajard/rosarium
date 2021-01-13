@@ -122,7 +122,7 @@ Pray for us, O holy Mother of God.
 
 That we may be made worthy of the promises of Christ.
 
-## oremus
+## letUsPray
 
 Let us pray
 
@@ -136,7 +136,7 @@ through the same Christ our Lord.
 
 Amen.
 
-## saintMichæl
+## saintMichael
 
 Prayer to St. Michael
 

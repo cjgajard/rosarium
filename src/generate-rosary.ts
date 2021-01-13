@@ -24,8 +24,8 @@ const CONTENTS: LangContentMap = {
 
 export type Rosary = IterableIterator<IPrayer | INodeKey>;
 
-export default (config: RosaryConfig): Rosary => {
-  const content: IContent = CONTENTS[config.lang];
+export default (lang: Lang, config: RosaryConfig): Rosary => {
+  const content: IContent = CONTENTS[lang];
 
   let mysteryName: MysteryKey; // eslint-disable-line init-declarations
   switch (new Date().getDay()) {
@@ -70,13 +70,17 @@ export default (config: RosaryConfig): Rosary => {
   };
 
   const iterator = (function *() {
-    // for (let it = 0; it < MYSTERIES_NUM; it++) {
-    for (let it = 0; it < 1; it++) {
+    for (let it = 0; it < MYSTERIES_NUM; it++) {
       for (const value of chain())
         yield value;
     }
     yield content.prayers.hailHolyQueen;
-    yield content.prayers.oremus;
+    if (config.letUsPray)
+      yield content.prayers.letUsPray;
+    if (config.saintMichael)
+      yield content.prayers.saintMichael;
+    if (config.subTuum)
+      yield content.prayers.subTuum;
   }());
   return iterator;
 };

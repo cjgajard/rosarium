@@ -11,12 +11,11 @@ declare global { // HACK
 Object.typedKeys = Object.keys as any;
 /* eslint-enable */
 
-declare interface Configuration {
+declare interface IView {
   wrapper: Element;
   language: HTMLSelectElement;
-  fatimasPrayer: HTMLInputElement;
-  finalDoxology: HTMLInputElement;
   submit: HTMLButtonElement;
+  config: () => RosaryConfig;
 }
 
 const hydrateContent = (): DynElem<IPrayer> | null => {
@@ -51,25 +50,33 @@ const createSelect = (wrapper: Element): HTMLSelectElement | null => {
   return $select as HTMLSelectElement;
 };
 
-const createConfiguration = (): Configuration | null => {
+const createConfiguration = (): IView | null => {
   const wrapper = document.getElementById('config');
   if (!wrapper)
     return null;
+  const checkbox = (name: string) => {
+    const obj = wrapper.querySelector<HTMLInputElement>(`[name="${name}"]`);
+    return () => obj ? obj.checked : false;
+  };
   const language = createSelect(wrapper);
   if (!language)
     return null;
   const submit = document.getElementById('start');
   if (!submit)
     return null;
-  const fatimasPrayer = wrapper.querySelector('[name="fatimasPrayer"]');
-  if (!fatimasPrayer)
-    return null;
-  const finalDoxology = wrapper.querySelector('[name="finalDoxology"]');
-  if (!finalDoxology)
-    return null;
+  const fatimasPrayer = checkbox('fatimasPrayer');
+  const finalDoxology = checkbox('finalDoxology');
+  const letUsPray = checkbox('letUsPray');
+  const saintMichael = checkbox('saintMichael');
+  const subTuum = checkbox('subTuum');
   return {
-    fatimasPrayer: fatimasPrayer as HTMLInputElement,
-    finalDoxology: finalDoxology as HTMLInputElement,
+    config: () => ({
+      fatimasPrayer: fatimasPrayer(),
+      finalDoxology: finalDoxology(),
+      letUsPray: letUsPray(),
+      saintMichael: saintMichael(),
+      subTuum: subTuum(),
+    }),
     language,
     submit: submit as HTMLButtonElement,
     wrapper,
@@ -116,13 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
   nextButton.addEventListener('click', onNext);
   configuration.submit.addEventListener('click', () => {
     const lang = configuration.language.value;
-    if (!isLang(lang))
+    if (!isLang(lang)) {
+      console.error(`Language '${lang}' is not supported`);
       return;
-    const rosary = generateRosary({
-      fatimasPrayer: configuration.fatimasPrayer.checked,
-      finalDoxology: configuration.finalDoxology.checked,
-      lang,
-    });
+    }
+    const rosary = generateRosary(lang, configuration.config());
     iterator = rosary;
     toggleRunning(true);
     onNext();

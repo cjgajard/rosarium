@@ -121,7 +121,7 @@ Ora pro nobis, Sancta Dei Génetrix.
 
 Ut digni efficiamur promissionibus Christi.
 
-## oremus
+## letUsPray
 
 Oremus
 
@@ -134,7 +134,7 @@ Per eundem Christum Dóminum nostrum.
 
 Amen.
 
-## saintMichæl
+## saintMichael
 
 Sancte Michæl
 

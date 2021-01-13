@@ -124,7 +124,7 @@ Ruega por nosotros, Santa Madra de Dios,
 
 para que seamos dignos de las promesas y gracias de nuestro Señor Jesucristo.
 
-## oremus
+## letUsPray
 
 Oremos
 
@@ -138,7 +138,7 @@ Por Jesucristo, Nuestro Señor.
 
 Amén.
 
-## saintMichæl
+## saintMichael
 
 Oración a san Miguel
 
