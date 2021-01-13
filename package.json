@@ -17,13 +17,20 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --out-dir=public --public-url=/rosarium/public",
     "dev": "parcel serve src/index.html",
     "gen-lang": "tsc -p lib/gen-lang/"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carlos Gajardo",
   "license": "ISC",
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjgajard/rosarium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cjgajard/rosarium/issues"
+  },
+  "homepage": "https://github.com/cjgajard/rosarium#readme",
+  "description": "Page that shows one by one the prayers of the Rosary."
 }
