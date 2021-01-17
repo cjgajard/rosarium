@@ -230,21 +230,21 @@ Primum mysterium gloriosum
 Resurrectionem Dómini nostri Iesu Christi a mórtuis.
 
 ### 2
-Secundum mysterium dolorosum
+Secundum mysterium gloriosum
 
 Ascensionem Domini nostri Iesu Christi in cáelum.
 
 ### 3
-Tértium mysterium dolorosum
+Tértium mysterium gloriosum
 
 Missionem Spíritus Sancti in discípulos.
 
 ### 4
-Quartum mysterium dolorosum
+Quartum mysterium gloriosum
 
 Assumptionem Beatæ Mariæ Vírginis in cáelum.
 ### 5
-Quintum mysterium dolorosum
+Quintum mysterium gloriosum
 
 Coronationem Beatæ Mariæ Vírginis in cáelum.
 
