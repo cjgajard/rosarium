@@ -37,7 +37,9 @@
     "dot-location": ["error", "property"],
     "dot-notation": "warn",
     "eol-last": ["error", "always"],
-    "eqeqeq": "warn",
+    "eqeqeq": ["error", "always", {
+      "null": "ignore"
+    }],
     "for-direction": "warn",
     "func-call-spacing": ["error", "never"],
     "func-name-matching": "warn",
