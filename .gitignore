@@ -1,5 +1,6 @@
-node_modules/
-dist/
 .cache/
-text/*.json
+dist/
+node_modules/
 tmp/
+
+text/*.json
