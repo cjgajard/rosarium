@@ -1,11 +1,13 @@
 html {
   font-size: 62.5%;
 }
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   color: black;
   background-color: white;
@@ -25,68 +27,84 @@ body {
   font-size: 1.6rem;
   font-family: 'Carrois Gothic SC', sans-serif;
 }
+
 h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 8rem;
   text-align: center;
   margin: 1em 0 .2em;
 }
+
 h2 {
   margin: 1em 0;
 }
+
 p {
   margin: .5em 0;
 }
+
 a {
   color: inherit;
   text-decoration: underline;
 }
+
 main {
   padding: 0 2rem;
   margin: 0 auto;
   max-width: 414px;
 }
+
 @keyframes appear {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 .prayer {
   animation: appear ease 1s 1;
 }
+
 .prayer-verse {
   position: relative;
 }
+
 .karaoke {
   position: absolute;
   color: red;
   top: 0;
   left: 0;
 }
+
 .content {
   margin: 8rem 0;
 }
+
 .i {
   margin-bottom: 1rem;
-  line-height: 1;
 }
+
 .i:last-child {
   margin-bottom: 0;
 }
+
 .cbx-group {
   position: relative;
   display: inline-block;
 }
+
 .cbx-input {
   position: absolute;
   opacity: 0;
 }
+
 .cbx {
   line-height: 1;
 }
+
 .cbx-check {
   display: inline-block;
   vertical-align: middle;
@@ -98,33 +116,41 @@ main {
   top: -1px;
   margin-right: 4px;
 }
+
 .cbx-label {
   margin-left: 4px;
 }
+
 .cbx:hover > .cbx-check ,
 .cbx-input:focus + .cbx > .cbx-check {
   border-color: var(--fg-dark);
 }
+
 .cbx:hover > .cbx-label ,
 .cbx-input:focus + .cbx > .cbx-label {
   text-decoration: underline;
 }
+
 .cbx-input:checked + .cbx > .cbx-check {
   background-color: var(--hi-lite);
   border: 1px solid var(--hi-dark);
 }
+
 .cbx-input:checked + .cbx > .cbx-check::before {
   color: white;
   content: "✔";
 }
+
 .cbx-input:checked + .cbx > .cbx-label {
   color: var(--hi-dark);
 }
+
 .sel ,
 .btn ,
 .cbx {
   cursor: pointer;
 }
+
 .sel ,
 .btn {
   background-color: transparent;
@@ -136,6 +162,7 @@ main {
   font-family: inherit;
   width: 100%;
 }
+
 .sel:hover ,
 .sel:focus ,
 .btn:hover ,
@@ -143,45 +170,53 @@ main {
   border-color: var(--fg-dark);
   outline: none;
 }
+
 .btn:active {
   background-color: var(--fg-lite);
   border-color: var(--fg-dark);
   color: var(--fg-dark);
 }
+
 .action {
   position: fixed;
   bottom: 0;
   right: 0;
   margin: 2rem;
 }
+
 .action .btn {
   background-color: var(--fg-dark);
   border-color: var(--fg-dark);
   color: var(--bg);
   font-size: 1.6rem;
 }
+
 .action .btn:focus {
   background-color: var(--hi-dark);
   border-color: var(--hi-dark);
 }
+
 .github {
   text-align: center;
   color: var(--fg-lite);
   font-size: 1.428571rem;
   line-height: 1;
 }
+
 @media (min-width: 768px) {
   .action .btn {
     font-size: 2.4rem;
     border-radius: 6px;
   }
 }
+
 @media (min-width: 1024px) {
   .action .btn {
     font-size: 3.2rem;
     border-radius: 8px;
   }
 }
+
 [hidden] {
   display: none !important;
 }
