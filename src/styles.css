@@ -9,12 +9,29 @@ html {
 body {
   color: black;
   background-color: white;
+
+  /* theme */
+  --hi-dark: #3fab9b;
+  --hi-lite: #cee5d0;
+  --bg: #f3f0d7;
+  --fg-lite: #d8b384;
+  --fg-dark: #5e454b;
+
+  /* sepia */
+  color: var(--fg-dark);
+  background-color: var(--bg);
+
   line-height: 1.428581;
   font-size: 1.6rem;
   font-family: 'Carrois Gothic SC', sans-serif;
 }
 h1, h2, p {
   margin: 1em 0;
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  text-align: center;
 }
 main {
   padding-left: 20px;
@@ -23,21 +40,89 @@ main {
   margin-right: auto;
   max-width: 720px;
 }
-[hidden] {
-  display: none;
-}
-.config-box > div{
-  margin-bottom: 8px;
-}
 .verse {
   position: relative;
-}
-.verse:nth-child(odd) {
-  color: #444;
 }
 .karaoke {
   position: absolute;
   color: red;
   top: 0;
   left: 0;
+}
+
+.i {
+  margin-bottom: 1.6rem;
+}
+.i:last-child {
+  margin-bottom: 0;
+}
+.i .cbx-group {
+  position: relative;
+}
+.i .cbx-input {
+  position: absolute;
+  opacity: 0;
+}
+.i .cbx-face {
+  line-height: 1;
+}
+.i .cbx-face {
+  display: inline-block;
+}
+.i .cbx-check {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  border-radius: 4px;
+  border: 1px solid var(--fg-lite);
+  position: relative;
+  top: -1px;
+  margin-right: 4px;
+}
+.i .cbx-label {
+  margin-left: 4px;
+}
+.i .cbx-input:focus + .cbx-face > .cbx-check {
+  border-color: var(--fg-dark);
+}
+.i .cbx-input:focus + .cbx-face > .cbx-label {
+  text-decoration: underline;
+}
+.i .cbx-input:checked + .cbx-face > .cbx-check {
+  background-color: var(--hi-lite);
+  border: 1px solid var(--hi-dark);
+}
+.i .cbx-input:checked + .cbx-face > .cbx-check::before {
+  color: white;
+  content: "✔";
+}
+.i .cbx-input:checked + .cbx-face > .cbx-label {
+  color: var(--hi-dark);
+}
+.i .sel ,
+.i .btn {
+  background-color: transparent;
+  border: 1px solid var(--fg-lite);
+  border-radius: 4px;
+  color: var(--fg-dark);
+  display: inline-block;
+  padding: 0.6rem 0.8rem;
+  font-family: inherit;
+  width: 100%;
+}
+.i .sel:focus ,
+.i .btn:focus {
+  border-color: var(--fg-dark);
+  outline: none;
+}
+.i .sel {
+}
+.i .btn:active {
+  background-color: var(--fg-lite);
+  border-color: var(--fg-dark);
+  color: var(--fg-dark);
+}
+[hidden] {
+  display: none !important;
 }

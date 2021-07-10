@@ -2,70 +2,87 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap">
     <title>Rosary</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css" title="Basic" />
+    <link rel="alternate stylesheet" href="./console.css" title="Console" />
   </head>
   <body>
     <main>
       <h1>Rosary</h1>
       <div id="content"></div>
       <div id="config" class="config-box" style="margin-top:20px;">
-        <div>
-          <select name="lang"></select>
+        <div class="i">
+          <select class="sel" name="lang"></select>
         </div>
-        <div>
-          <select name="mystery">
-            <option value="">Daily</option>
+        <div class="i">
+          <select class="sel" name="mystery">
+            <option value="">For Today</option>
             <option value="joyful">Joyful</option>
             <option value="glorious">Glorious</option>
             <option value="sorrowful">Sorrowful</option>
             <option value="luminous">Luminous</option>
           </select>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="fatimasPrayer" checked />
-            Luminous
+        <div class="i">
+          <label class="cbx-group">
+            <input type="checkbox" class="cbx-input" name="luminous" checked />
+            <div class="cbx-face">
+              <span class="cbx-check"></span><span class="cbx-label">Luminous</span>
+            </div>
           </label>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="fatimasPrayer" checked />
-            Fatima's prayer
+        <div class="i">
+          <label class="cbx-group">
+            <input type="checkbox" class="cbx-input" name="fatimasPrayer" checked />
+            <div class="cbx-face">
+              <span class="cbx-check"></span><span class="cbx-label">Fatima's prayer</span>
+            </div>
           </label>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="finalDoxology" />
-            Lord's prayer doxology
+        <div class="i">
+          <label class="cbx-group">
+            <input type="checkbox" class="cbx-input" name="finalDoxology" />
+            <div class="cbx-face">
+              <span class="cbx-check"></span><span class="cbx-label">Lord's prayer doxology</span>
+            </div>
           </label>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="letUsPray" />
-            Let us pray
+        <div class="i">
+          <label class="cbx-group">
+            <input type="checkbox" class="cbx-input" name="letUsPray" />
+            <div class="cbx-face">
+              <span class="cbx-check"></span><span class="cbx-label">Let us pray</span>
+            </div>
           </label>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="saintMichael" />
-            Prayer to Saint Michael
+        <div class="i">
+          <label class="cbx-group">
+            <input type="checkbox" class="cbx-input" name="saintMichael" />
+            <div class="cbx-face">
+              <span class="cbx-check"></span><span class="cbx-label">Prayer to Saint Michael</span>
+            </div>
           </label>
         </div>
-        <div>
-          <label>
-            <input type="checkbox" name="subTuum" />
-            Sub tuum præsidium
+        <div class="i">
+          <label class="cbx-group">
+            <input type="checkbox" class="cbx-input" name="subTuum" />
+            <div class="cbx-face">
+              <span class="cbx-check"></span><span class="cbx-label">Sub tuum præsidium</span>
+            </div>
           </label>
         </div>
-        <div>
-          <button id="start" type="button">Start</button>
+        <div class="i">
+          <button id="start" type="button" class="btn">Start</button>
         </div>
       </div>
-      <button id="next" type="button" hidden>Next</button>
+      <div class="i">
+        <button id="next" type="button" class="btn" hidden>Next</button>
+      </div>
     </main>
     <script src="./index.ts"></script>
   </body>
