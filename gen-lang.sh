@@ -8,7 +8,10 @@ gen_lang() {
   done
 }
 
-pnpx tsc -p lib/gen-lang/ || return 1
+if ! pnpx tsc -p lib/gen-lang/; then
+  exit 1
+fi
+
 if [[ $# -eq 0 ]]; then
   gen_lang $(basename -as .md text/*.md)
 else

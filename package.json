@@ -20,10 +20,10 @@
   },
   "name": "rosarium",
   "version": "1.0.0",
-  "main": "public/index.html",
+  "main": "docs/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url=/rosarium/",
     "dev": "parcel serve src/index.html"
   },
   "keywords": [],
