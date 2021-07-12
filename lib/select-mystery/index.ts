@@ -9,7 +9,7 @@ enum NameOfDay {
   SAT,
 }
 
-type Times = 'advent' | 'christmas' | 'easter' | 'lent' | 'ordinary' ;
+type Times = "advent" | "christmas" | "easter" | "lent" | "ordinary";
 
 const getEaster = (year: number): Date => {
   /* eslint-disable id-length, no-mixed-operators */
@@ -44,55 +44,47 @@ const getLiturgicalTime = (now: Date): Times => {
   const year = now.getFullYear();
 
   const christmas = new Date(year, 12, 25);
-  if (numnow >= Number(christmas))
-    return 'christmas';
+  if (numnow >= Number(christmas)) return "christmas";
 
   const advent = dayDiff(christmas, -(((christmas.getDay() + 6) % 7) + 22));
-  if (numnow >= Number(advent))
-    return 'advent';
+  if (numnow >= Number(advent)) return "advent";
 
   const easter = getEaster(year);
 
   const baptismOfJesus = dayDiff(easter, -77);
-  if (numnow < Number(baptismOfJesus))
-    return 'christmas';
+  if (numnow < Number(baptismOfJesus)) return "christmas";
 
   const ashWednesday = dayDiff(easter, -77);
-  if (numnow < Number(ashWednesday))
-    return 'lent';
+  if (numnow < Number(ashWednesday)) return "lent";
 
   const palmSunday = dayDiff(easter, -7);
-  if (numnow < Number(palmSunday))
-    return 'ordinary';
+  if (numnow < Number(palmSunday)) return "ordinary";
 
   const afterPentecost = dayDiff(easter, 50);
-  if (numnow < Number(afterPentecost))
-    return 'easter';
+  if (numnow < Number(afterPentecost)) return "easter";
 
-  return 'ordinary';
+  return "ordinary";
 };
 
 export const dailyMystery = (config: RosaryConfig): MysteryKey => {
   const now = new Date();
   switch (now.getDay()) {
-  case NameOfDay.MON:
-    return 'joyful';
-  case NameOfDay.TUE:
-    return 'sorrowful';
-  case NameOfDay.WED:
-    return 'glorious';
-  case NameOfDay.THU:
-    if (config.luminous)
-      return 'luminous';
-    return 'joyful';
-  case NameOfDay.FRI:
-    return 'sorrowful';
-  case NameOfDay.SAT:
-    if (config.luminous)
-      return 'joyful';
-    return 'glorious';
-  default:
-    break;
+    case NameOfDay.MON:
+      return "joyful";
+    case NameOfDay.TUE:
+      return "sorrowful";
+    case NameOfDay.WED:
+      return "glorious";
+    case NameOfDay.THU:
+      if (config.luminous) return "luminous";
+      return "joyful";
+    case NameOfDay.FRI:
+      return "sorrowful";
+    case NameOfDay.SAT:
+      if (config.luminous) return "joyful";
+      return "glorious";
+    default:
+      break;
   }
 
   /*
@@ -107,28 +99,28 @@ export const dailyMystery = (config: RosaryConfig): MysteryKey => {
    * In Easter and Ordinary Time:  Glorious
    */
   switch (getLiturgicalTime(now)) {
-  case 'advent':
-  case 'christmas':
-    return 'joyful';
-  case 'lent':
-    return 'sorrowful';
-  case 'easter':
-  case 'ordinary':
-    return 'glorious';
-  default:
-    // unreachable
-    return 'glorious';
+    case "advent":
+    case "christmas":
+      return "joyful";
+    case "lent":
+      return "sorrowful";
+    case "easter":
+    case "ordinary":
+      return "glorious";
+    default:
+      // unreachable
+      return "glorious";
   }
 };
 
 export default (config: RosaryConfig): MysteryKey => {
   switch (config.mystery) {
-  case 'joyful':
-  case 'glorious':
-  case 'sorrowful':
-  case 'luminous':
-    return config.mystery;
-  default:
-    return dailyMystery(config);
+    case "joyful":
+    case "glorious":
+    case "sorrowful":
+    case "luminous":
+      return config.mystery;
+    default:
+      return dailyMystery(config);
   }
 };

@@ -52,8 +52,8 @@
     "grouped-accessor-pairs": "warn",
     "guard-for-in": "warn",
     "id-denylist": "warn",
-    "id-length": ["error", {
-      "min": 2
+    "id-length": ["off", {
+      "min": 1
     }],
     "id-match": "warn",
     "implicit-arrow-linebreak": "off",
@@ -228,7 +228,7 @@
     "no-unused-expressions": "warn",
     "no-unused-labels": "warn",
     "no-unused-vars": "warn",
-    "no-use-before-define": "warn",
+    "no-use-before-define": "off",
     "no-useless-backreference": "warn",
     "no-useless-call": "warn",
     "no-useless-catch": "warn",
@@ -293,8 +293,8 @@
     "semi": ["error", "always"],
     "semi-spacing": "warn",
     "semi-style": "warn",
-    "sort-imports": "warn",
-    "sort-keys": "warn",
+    "sort-imports": "off",
+    "sort-keys": "off",
     "sort-vars": "warn",
     "space-before-blocks": ["error", "always"],
     "space-before-function-paren": ["error", {
@@ -319,6 +319,7 @@
     "wrap-regex": "warn",
     "yield-star-spacing": "warn",
     "yoda": "warn",
+    "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-shadow": "error"
   }
 }

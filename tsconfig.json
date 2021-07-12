@@ -3,6 +3,7 @@
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
     "module": "commonjs",
     "noImplicitAny": true,
     "outDir": "dist",

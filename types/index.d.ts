@@ -13,28 +13,39 @@ interface INode {
 
 type INodeKey = typeof INode.key;
 
-interface IPrayer {
+type PrayerKey =
+  | "credo"
+  | "fatimasPrayer"
+  | "finalDoxology"
+  | "gloryBe"
+  | "hailHolyQueen"
+  | "hailMary"
+  | "lordsPrayer"
+  | "letUsPray"
+  | "saintMichael"
+  | "signOfTheCross"
+  | "subTuum";
+
+type IPrayer = {
   title: string;
   verses: string[];
   repetition?: number;
-}
-
-type PrayerKey = 'credo' | 'fatimasPrayer' | 'finalDoxology' | 'gloryBe' |
-  'hailHolyQueen' | 'hailMary' | 'lordsPrayer' | 'letUsPray' | 'saintMichael' |
-  'signOfTheCross' | 'subTuum';
+};
 
 type IPrayerMap = {
   readonly [K in PrayerKey]: IPrayer;
-}
+};
 
-type MysteryKey = 'joyful' | 'glorious' | 'sorrowful' | 'luminous';
+type MysteryKey = "joyful" | "glorious" | "sorrowful" | "luminous";
 type IMysteryMap = {
   readonly [K in MysteryKey]: INode;
-}
+};
 
 interface IContent {
+  title: string;
   prayers: IPrayerMap;
   mysteries: IMysteryMap;
+  ui: INode;
 }
 
 interface DynElem<T> {
@@ -42,22 +53,28 @@ interface DynElem<T> {
   update(result: T);
 }
 
-type Lang = 'en' | 'es' | 'la';
+type Lang = "en" | "es" | "la";
+
+type LangTuple = [Lang, string];
 
 type LanguageMap = {
   [K in Lang]: string;
-}
+};
 
 type LangContentMap = {
   [K in Lang]: IContent;
-}
+};
 
 interface RosaryConfig {
+  language: Lang;
+  mystery: string;
+
   fatimasPrayer: boolean;
   finalDoxology: boolean;
   letUsPray: boolean;
   luminous: boolean;
-  mystery: string;
   saintMichael: boolean;
   subTuum: boolean;
 }
+
+type Rosary = IterableIterator<IPrayer | INodeKey>;

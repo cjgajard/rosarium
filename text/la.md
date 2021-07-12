@@ -136,7 +136,7 @@ Amen.
 
 ## saintMichael
 
-Sancte Michæl
+Oratio Sancto Michæli
 
 Sancte Michæl Archángele, defende nos in proélio,
 contra nequítiam et insídias diáboli esto præsídium
@@ -276,3 +276,15 @@ Transfiguratio
 Quintum mysterium dolorosum
 
 Institutio Eucharistiae
+
+# ui
+
+Interfacies utentium
+
+## useLuminous
+
+In diebus Iovis Mysteria Luminosa orabuntur
+
+## forToday
+
+Mysteria huius diei

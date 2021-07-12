@@ -9,81 +9,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap">
     <title>Rosary</title>
     <link rel="stylesheet" href="./styles.css" title="Basic" />
-    <link rel="alternate stylesheet" href="./console.css" title="Console" />
   </head>
   <body>
-    <main>
-      <h1>Rosary</h1>
-      <div id="content"></div>
-      <div id="config" class="config-box" style="margin-top:20px;">
-        <div class="i">
-          <select class="sel" name="lang"></select>
-        </div>
-        <div class="i">
-          <select class="sel" name="mystery">
-            <option value="">For Today</option>
-            <option value="joyful">Joyful</option>
-            <option value="glorious">Glorious</option>
-            <option value="sorrowful">Sorrowful</option>
-            <option value="luminous">Luminous</option>
-          </select>
-        </div>
-        <div class="i">
-          <label class="cbx-group">
-            <input type="checkbox" class="cbx-input" name="luminous" checked />
-            <div class="cbx-face">
-              <span class="cbx-check"></span><span class="cbx-label">Luminous</span>
-            </div>
-          </label>
-        </div>
-        <div class="i">
-          <label class="cbx-group">
-            <input type="checkbox" class="cbx-input" name="fatimasPrayer" checked />
-            <div class="cbx-face">
-              <span class="cbx-check"></span><span class="cbx-label">Fatima's prayer</span>
-            </div>
-          </label>
-        </div>
-        <div class="i">
-          <label class="cbx-group">
-            <input type="checkbox" class="cbx-input" name="finalDoxology" />
-            <div class="cbx-face">
-              <span class="cbx-check"></span><span class="cbx-label">Lord's prayer doxology</span>
-            </div>
-          </label>
-        </div>
-        <div class="i">
-          <label class="cbx-group">
-            <input type="checkbox" class="cbx-input" name="letUsPray" />
-            <div class="cbx-face">
-              <span class="cbx-check"></span><span class="cbx-label">Let us pray</span>
-            </div>
-          </label>
-        </div>
-        <div class="i">
-          <label class="cbx-group">
-            <input type="checkbox" class="cbx-input" name="saintMichael" />
-            <div class="cbx-face">
-              <span class="cbx-check"></span><span class="cbx-label">Prayer to Saint Michael</span>
-            </div>
-          </label>
-        </div>
-        <div class="i">
-          <label class="cbx-group">
-            <input type="checkbox" class="cbx-input" name="subTuum" />
-            <div class="cbx-face">
-              <span class="cbx-check"></span><span class="cbx-label">Sub tuum præsidium</span>
-            </div>
-          </label>
-        </div>
-        <div class="i">
-          <button id="start" type="button" class="btn">Start</button>
-        </div>
-      </div>
-      <div class="i">
-        <button id="next" type="button" class="btn" hidden>Next</button>
-      </div>
-    </main>
-    <script src="./index.ts"></script>
+    <div id="react-root"></div>
+    <script src="./index.tsx"></script>
   </body>
 </html>

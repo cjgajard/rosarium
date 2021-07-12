@@ -296,3 +296,15 @@ Fifth luminous mystery
 
 The Institution of the Eucharist:
 Jesus shares His Body and Blood for our salvation.
+
+# ui
+
+User interface
+
+## useLuminous
+
+Use Luminous Mysteries on thursdays
+
+## forToday
+
+For today
