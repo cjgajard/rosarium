@@ -27,9 +27,9 @@ body {
 }
 h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 80px;
+  font-size: 8rem;
   text-align: center;
-  margin: 80px 0;
+  margin: 1em 0 .2em;
 }
 h2 {
   margin: 1em 0;
@@ -37,13 +37,27 @@ h2 {
 p {
   margin: .5em 0;
 }
+a {
+  color: inherit;
+  text-decoration: underline;
+}
 main {
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 80px auto;
+  padding: 0 2rem;
+  margin: 0 auto;
   max-width: 414px;
 }
-.verse {
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.prayer {
+  animation: appear ease 1s 1;
+}
+.prayer-verse {
   position: relative;
 }
 .karaoke {
@@ -52,8 +66,8 @@ main {
   top: 0;
   left: 0;
 }
-.config-box {
-  margin: 80px 0;
+.content {
+  margin: 8rem 0;
 }
 .i {
   margin-bottom: 1rem;
@@ -138,7 +152,7 @@ main {
   position: fixed;
   bottom: 0;
   right: 0;
-  margin: 32px;
+  margin: 2rem;
 }
 .action .btn {
   background-color: var(--fg-dark);
@@ -149,6 +163,12 @@ main {
 .action .btn:focus {
   background-color: var(--hi-dark);
   border-color: var(--hi-dark);
+}
+.github {
+  text-align: center;
+  color: var(--fg-lite);
+  font-size: 1.428571rem;
+  line-height: 1;
 }
 @media (min-width: 768px) {
   .action .btn {

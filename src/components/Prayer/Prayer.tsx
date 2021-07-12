@@ -12,13 +12,13 @@ export const Prayer = (props: PrayerProps): JSX.Element => {
   const repetitionLabel = repetition ? ` #${repetition}` : "";
 
   return (
-    <div>
-      <h2 className="content_title">
+    <div className="prayer">
+      <h2 className="prayer-title">
         {title}
         {repetitionLabel}
       </h2>
       {verses.map((v: VerseItem) => (
-        <p key={v.key} className="verse">
+        <p key={v.key} className="prayer-verse">
           {v.value}
         </p>
       ))}

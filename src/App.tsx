@@ -28,7 +28,6 @@ export const App = (): JSX.Element => {
 
   const handleClose = () => {
     setRunning(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleNext = () => {
@@ -54,100 +53,121 @@ export const App = (): JSX.Element => {
   };
 
   React.useEffect(() => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }, [prayers]);
+    if (running) {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [running, prayers]);
 
   return (
     <main>
       <h1>{CONTENT[config.language].title}</h1>
       {!running && (
-        <div id="config" className="config-box">
-          <I>
-            <Select
-              name="lang"
-              value={config.language}
-              onChange={(v: string) => {
-                if (!isLang(v)) return;
-                setConfig({ ...config, language: v });
-              }}
-              options={languageOptions}
-            />
-          </I>
-          <I>
-            <Select
-              name="mystery"
-              value={config.mystery}
-              onChange={(v: string) => setConfig({ ...config, mystery: v })}
-              options={getMysteryOptions(config.language)}
-            />
-          </I>
-          {config.mystery === "" && (
+        <p className="github">
+          Read the source code at{" "}
+          <a
+            className="github-link"
+            href="https://github.com/cjgajard/rosarium/"
+          >
+            github.com
+          </a>
+        </p>
+      )}
+      <div className="content">
+        {!running && (
+          <div id="config">
+            <I>
+              <Select
+                name="lang"
+                value={config.language}
+                onChange={(v: string) => {
+                  if (!isLang(v)) return;
+                  setConfig({ ...config, language: v });
+                }}
+                options={languageOptions}
+              />
+            </I>
+            <I>
+              <Select
+                name="mystery"
+                value={config.mystery}
+                onChange={(v: string) => setConfig({ ...config, mystery: v })}
+                options={getMysteryOptions(config.language)}
+              />
+            </I>
+            {config.mystery === "" && (
+              <I>
+                <Checkbox
+                  name="luminous"
+                  checked={config.luminous}
+                  onChange={(v: boolean) =>
+                    setConfig({ ...config, luminous: v })
+                  }
+                >
+                  {CONTENT[config.language].ui.useLuminous}
+                </Checkbox>
+              </I>
+            )}
             <I>
               <Checkbox
-                name="luminous"
-                checked={config.luminous}
-                onChange={(v: boolean) => setConfig({ ...config, luminous: v })}
+                name="fatimasPrayer"
+                checked={config.fatimasPrayer}
+                onChange={(v: boolean) =>
+                  setConfig({ ...config, fatimasPrayer: v })
+                }
               >
-                {CONTENT[config.language].ui.useLuminous}
+                {CONTENT[config.language].prayers.fatimasPrayer.title}
               </Checkbox>
             </I>
-          )}
-          <I>
-            <Checkbox
-              name="fatimasPrayer"
-              checked={config.fatimasPrayer}
-              onChange={(v: boolean) =>
-                setConfig({ ...config, fatimasPrayer: v })
-              }
-            >
-              {CONTENT[config.language].prayers.fatimasPrayer.title}
-            </Checkbox>
-          </I>
-          <I>
-            <Checkbox
-              name="finalDoxology"
-              checked={config.finalDoxology}
-              onChange={(v: boolean) =>
-                setConfig({ ...config, finalDoxology: v })
-              }
-            >
-              {CONTENT[config.language].prayers.finalDoxology.title}
-            </Checkbox>
-          </I>
-          <I>
-            <Checkbox
-              name="letUsPray"
-              checked={config.letUsPray}
-              onChange={(v: boolean) => setConfig({ ...config, letUsPray: v })}
-            >
-              {CONTENT[config.language].prayers.letUsPray.title}
-            </Checkbox>
-          </I>
-          <I>
-            <Checkbox
-              name="saintMichael"
-              checked={config.saintMichael}
-              onChange={(v: boolean) =>
-                setConfig({ ...config, saintMichael: v })
-              }
-            >
-              {CONTENT[config.language].prayers.saintMichael.title}
-            </Checkbox>
-          </I>
-          <I>
-            <Checkbox
-              name="subTuum"
-              checked={config.subTuum}
-              onChange={(v: boolean) => setConfig({ ...config, subTuum: v })}
-            >
-              {CONTENT[config.language].prayers.subTuum.title}
-            </Checkbox>
-          </I>
-        </div>
-      )}
-      {prayers.map((p: PrayerItem) => (
-        <Prayer {...p} />
-      ))}
+            <I>
+              <Checkbox
+                name="finalDoxology"
+                checked={config.finalDoxology}
+                onChange={(v: boolean) =>
+                  setConfig({ ...config, finalDoxology: v })
+                }
+              >
+                {CONTENT[config.language].prayers.finalDoxology.title}
+              </Checkbox>
+            </I>
+            <I>
+              <Checkbox
+                name="letUsPray"
+                checked={config.letUsPray}
+                onChange={(v: boolean) =>
+                  setConfig({ ...config, letUsPray: v })
+                }
+              >
+                {CONTENT[config.language].prayers.letUsPray.title}
+              </Checkbox>
+            </I>
+            <I>
+              <Checkbox
+                name="saintMichael"
+                checked={config.saintMichael}
+                onChange={(v: boolean) =>
+                  setConfig({ ...config, saintMichael: v })
+                }
+              >
+                {CONTENT[config.language].prayers.saintMichael.title}
+              </Checkbox>
+            </I>
+            <I>
+              <Checkbox
+                name="subTuum"
+                checked={config.subTuum}
+                onChange={(v: boolean) => setConfig({ ...config, subTuum: v })}
+              >
+                {CONTENT[config.language].prayers.subTuum.title}
+              </Checkbox>
+            </I>
+          </div>
+        )}
+        {prayers.map((p: PrayerItem) => (
+          <Prayer {...p} />
+        ))}
+      </div>
       <Action>
         <I>
           <button
@@ -165,7 +185,7 @@ export const App = (): JSX.Element => {
 };
 
 const getMysteryOptions = (lang: Lang) => [
-  { value: "", label: CONTENT[lang].ui.forToday },
+  { value: "", label: CONTENT[lang].ui.forToday as string },
   { value: "joyful", label: CONTENT[lang].mysteries.joyful.title },
   { value: "glorious", label: CONTENT[lang].mysteries.glorious.title },
   { value: "sorrowful", label: CONTENT[lang].mysteries.sorrowful.title },
