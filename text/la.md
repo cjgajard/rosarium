@@ -87,11 +87,11 @@ Amen.
 Oratio Fatimæ
 
 Domine Iesu,
-dimitte nobis debita nostra,
-salva nos ab igne inferiori,
+dimitte nobis débita nostra,
+líbera nos ab igne inferni,
 
 perdúc in cælum omnes animas,
-præsertim eas quæ misericordiæ tuæ maxime indigent.
+præsertim eas quæ maxime indigent misericordiæ tua.
 
 ## oSacramentMostHoly
 
