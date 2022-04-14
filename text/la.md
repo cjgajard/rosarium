@@ -268,12 +268,12 @@ Tértium mysterium luminosum
 Proclamatio Regni Dei.
 
 ### 4
-Quartum mysterium dolorosum
+Quartum mysterium luminosum
 
 Transfiguratio
 
 ### 5
-Quintum mysterium dolorosum
+Quintum mysterium luminosum
 
 Institutio Eucharistiae
 
